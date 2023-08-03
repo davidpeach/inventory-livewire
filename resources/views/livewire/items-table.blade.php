@@ -1,4 +1,5 @@
 <div>
+    <input type="search" wire:model="search" />
     <table class="w-full">
         <thead>
             <tr>
