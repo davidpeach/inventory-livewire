@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Item\ItemIndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware(['auth'])->group(function () {
+    // Route::view too
+    Route::get('items', ItemIndexController::class);
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
