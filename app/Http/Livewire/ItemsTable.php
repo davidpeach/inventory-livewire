@@ -17,7 +17,10 @@ class ItemsTable extends Component
 
     public bool $sortAsc = true;
 
-    protected $queryString = [
+    /**
+     * @property array<string> $queryString
+     */
+    protected $queryString = [ /* @phpstan-ignore-line */
         'search',
         'sortField',
         'sortAsc',
@@ -28,7 +31,7 @@ class ItemsTable extends Component
         $this->resetPage();
     }
 
-    public function sortBy(string $column)
+    public function sortBy(string $column): void
     {
         $this->sortAsc = ! $this->sortAsc;
 
