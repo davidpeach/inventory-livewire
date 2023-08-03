@@ -11,7 +11,7 @@ class ItemsTable extends Component
 {
     use WithPagination;
 
-    public string $search;
+    public string $search = '';
 
     public function updatingSearch(): void
     {
