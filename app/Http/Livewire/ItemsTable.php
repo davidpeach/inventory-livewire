@@ -13,9 +13,26 @@ class ItemsTable extends Component
 
     public string $search = '';
 
+    public string $sortField = 'name';
+
+    public bool $sortAsc = true;
+
+    protected $queryString = [
+        'search',
+        'sortField',
+        'sortAsc',
+    ];
+
     public function updatingSearch(): void
     {
         $this->resetPage();
+    }
+
+    public function sortBy(string $column)
+    {
+        $this->sortAsc = ! $this->sortAsc;
+
+        $this->sortField = $column;
     }
 
     public function render(): View
@@ -24,6 +41,7 @@ class ItemsTable extends Component
             'items' => Item::query()
                 ->select(['name'])
                 ->search($this->search)
+                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate(10),
         ]);
     }
