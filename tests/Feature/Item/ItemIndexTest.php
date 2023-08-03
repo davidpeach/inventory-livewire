@@ -41,4 +41,29 @@ class ItemIndexTest extends TestCase
             ->assertSee($itemB->name)
             ->assertDontSee($itemA->name);
     }
+
+    /** @test */
+    public function item_listing_table_can_be_sorted_by_name()
+    {
+
+        $itemB = Item::factory()->create([
+            'name' => 'B the second',
+        ]);
+
+        $itemC = Item::factory()->create([
+            'name' => 'C the third',
+        ]);
+
+        $itemA = Item::factory()->create([
+            'name' => 'A the first',
+        ]);
+
+        Livewire::test(ItemsTable::class)
+            ->set('sortAsc', false)
+            ->assertSeeInOrder([
+                $itemC->name,
+                $itemB->name,
+                $itemA->name,
+            ]);
+    }
 }

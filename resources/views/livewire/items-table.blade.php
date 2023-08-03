@@ -3,7 +3,16 @@
     <table class="w-full">
         <thead>
             <tr>
-                <th class="bg-blue-100 border text-left px-8 py-4">NAME</th>
+                <th class="bg-blue-100 border text-left px-8 py-4 flex">
+                    <button wire:click="sortBy('name')">NAME</button>
+                    @if ($sortField !== 'name')
+                        <span></span>
+                    @elseif ($sortAsc)
+                        <span>^</span>
+                    @else
+                        <span>v</span>
+                    @endif
+                    </th>
             </tr>
         </thead>
         <tbody>
