@@ -20,7 +20,7 @@ class ItemsTable extends Component
     /**
      * @property array<string> $queryString
      */
-    protected $queryString = [ /* @phpstan-ignore-line */
+    protected $queryString = [/* @phpstan-ignore-line */
         'search',
         'sortField',
         'sortAsc',
