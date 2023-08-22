@@ -10,6 +10,7 @@ class EditItem extends EditRecord
 {
     protected static string $resource = ItemResource::class;
 
+    /** @phpstan-ignore-next-line */
     protected function getActions(): array
     {
         return [

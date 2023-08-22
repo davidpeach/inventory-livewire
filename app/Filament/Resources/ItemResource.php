@@ -3,18 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ItemResource\Pages;
-use App\Filament\Resources\ItemResource\RelationManagers;
 use App\Models\Item;
-use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\Filter;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ItemResource extends Resource
 {
@@ -49,6 +44,7 @@ class ItemResource extends Resource
             ]);
     }
 
+    /** @phpstan-ignore-next-line */
     public static function getRelations(): array
     {
         return [
@@ -56,6 +52,7 @@ class ItemResource extends Resource
         ];
     }
 
+    /** @phpstan-ignore-next-line */
     public static function getPages(): array
     {
         return [
