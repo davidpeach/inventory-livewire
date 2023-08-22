@@ -10,6 +10,10 @@ class Item extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+    ];
+
     /**
      * @param  Builder<Item>  $query
      */
